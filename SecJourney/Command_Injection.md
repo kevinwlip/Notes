@@ -4,7 +4,7 @@ Command injection is a critical security vulnerability where an attacker can exe
 In this lesson, we will examine a command injection vulnerability, understand how attackers can exploit it, and explore effective strategies to mitigate it. By the end, you will learn how to protect your applications through proper input validation, sanitization, and secure coding practices.
 
 ## Interrogate
-In the Sandbox tab, we will find a simple application that allows users to ping hosts. The user is expected to input a hostname, and the application returns the results of the ping command.
+In the **Sandbox** tab, we will find a simple application that allows users to `ping` hosts. The user is expected to input a hostname, and the application returns the results of the ping command.
 
 Let's begin by trying to ping our application server using the hostname 'app' and see the response:
 
