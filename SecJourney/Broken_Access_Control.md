@@ -8,7 +8,7 @@ A broken access control vulnerability is a violation of what you are authorized 
 Broken access control is when the application does not ensure that the user is authenticated and is authorized to access data or perform a function.
 
 ## Reconnaissance
-First, make sure Intercept Requests is disabled. We do not need it for this lesson.
+First, make sure `Intercept Requests` is disabled. We do not need it for this lesson.
 
 In the sandbox browser, try going to the URL:
 
@@ -16,7 +16,7 @@ Copy
 ```
 https://app.sb.my.securityjourney.com/account/1
 ```
-Ensure that you do not have a trailing slash (/) in the URL.
+Ensure that you do not have a trailing slash (`/`) in the URL.
 
 What happens?
 
@@ -38,7 +38,7 @@ Copy
 ```
 https://app.sb.my.securityjourney.com/account/17
 ```
-Ensure that you do not have a trailing slash `(/)` in the URL.
+Ensure that you do not have a trailing slash (`/`) in the URL.
 
 It looks like you can steal other users information because of this broken access control. Are there other accounts you can access?
 
@@ -52,7 +52,7 @@ Also, use indirect object references so attackers do not know how to access cert
 Before returning account information it is important to check if the user is allowed to access the requesting data. In the case of account balance information the user should only be able to access their own account balance.
 
 ## Patch the Vulnerabilities
-Click on Code Editor to the right of Proxy History to open the Code Editor, select your programming language, and fix the Broken Access Control vulnerability.
+Click on **Code Editor** to the right of Proxy History to open the Code Editor, select your programming language, and fix the Broken Access Control vulnerability.
 
 Alice should only be able to see their own account information. The code needs to check to make sure that Alice is the user and it is Alice's account information before sending the data to the user.
 
@@ -60,7 +60,7 @@ Each language has a JSON Web Token (JWT) library installed that is used. The JWT
 
 If the `username` in the JWT does not match the username returned from the database, raise an exception/error with the following message: `You do not have access`.
 
-Once you have edited the code successfully, hit the `Save Code` button. This will update the running application.
+Once you have edited the code successfully, hit the **Save Code** button. This will update the running application.
 
 Try exploiting the vulnerability again by trying to access Bob's account (17) to ensure you fixed it correctly.
 
@@ -139,7 +139,7 @@ Copy
 ```
 eyJhbGciOiJub25lIn0.eyJzdWIiOiIxMjM0NTYiLCJuYW1lIjoiaGFja2VkdV9hZG1pbiIsIml0ZW1zIjpbMSw1XX0.
 ```
-The following figure describes the way this token has been created so you can get a better understanding of the whole process. Notice that although the signature component is missing, the delimiter symbol (.) is still appended at the end of the string.
+The following figure describes the way this token has been created so you can get a better understanding of the whole process. Notice that although the signature component is missing, the delimiter symbol (`.`) is still appended at the end of the string.
 
 ## Fig. 2 - Serialization process for an insecure token
 
