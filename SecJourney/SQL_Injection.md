@@ -4,9 +4,9 @@ SQL Injection remains one of the oldest cataloged vulnerabilities, yet it contin
 In this lesson, you will be tasked with identifying and rectifying an SQL Injection vulnerability within an e-commerce application.
 
 ## Reconnaissance
-Let's see if we can discover candidate features for a SQL Injection attack.
+Let's see if we can discover candidate features for a **SQL Injection attack**.
 
-In the Sandbox tab:
+In the **Sandbox** tab:
 
 Select a store
 Add a product to your shopping cart
@@ -14,7 +14,7 @@ You'll be presented with a typical shopping cart page.
 
 You may notice that the shopping cart page allows customers to input a coupon code. Since this entry is text it might be a candidate for a SQL Injection attack.
 
-Let's input a character that is part of the SQL language, such as the single quote character '.
+Let's input a character that is part of the SQL language, such as the single quote character `'`.
 
 What are the results?
 
@@ -45,7 +45,7 @@ Copy
 ```
 SELECT * FROM coupons WHERE code = a' OR 'x' = 'x'
 ```
-Let's try a' OR 'x' = 'x and see the results.
+Let's try `a' OR 'x' = 'x` and see the results.
 
 As you can see a coupon code was applied successfully to our order.
 
@@ -62,7 +62,7 @@ Copy
 ```
 a' OR 1 = 1 ORDER BY discount DESC; -- 
 ```
-Note: you need to have a space after the --.
+Note: you need to have a space after the `--`.
 
 What are the results?
 
@@ -71,7 +71,7 @@ As you can see you found a test coupon code for $1000 which made the total negat
 In the next section will we eliminate the vulnerability.
 
 ## Defense
-Open the Code Editor tab. You should recognize that the code is generating the SQL statement using string concatenation. We generate the SQL statement while protecting against SQL Injection.
+Open the **Code Editor** tab. You should recognize that the code is generating the SQL statement using string concatenation. We generate the SQL statement while protecting against SQL Injection.
 
 Using parameterized queries statements is a common technique. Update the code to use a parameterized query.
 
